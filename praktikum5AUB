@@ -1,0 +1,60 @@
+
+package LatihanAUB;
+
+import java.util.Scanner;
+
+public class TransaksiPenjualan {
+    
+    public static void main(String[] args) {
+        
+        int belanjaan, nomortf, diskon = 0, diskon10 = 0, diskon5 = 0, jadibayar, jumlah, hargabuku;
+        String nama, judul;
+        Scanner scan = new Scanner(System.in);
+        
+        // proses input data
+        
+        System.out.println("====================================");
+        System.out.println("        Transaksi Penjualan         ");
+        System.out.println("            Toko Buku               ");
+        System.out.println("           YOGS MEDIA               ");
+        System.out.println("====================================");
+                
+        System.out.print("Masukkan nama anda: ");
+        nama = scan.nextLine();
+        
+        System.out.print("Judul buku yang dibeli: ");
+        judul = scan.nextLine();
+
+        System.out.print("Jumlah buku yang dibeli: ");
+        jumlah = scan.nextInt();
+        
+        System.out.print("Harga buku yang dibeli(RP): ");
+        hargabuku = scan.nextInt();
+        
+        System.out.print("Masukkan nomor transaksi: ");
+        nomortf = scan.nextInt();
+        
+        // proses inti
+        belanjaan = jumlah * hargabuku;
+        
+        if ( belanjaan > 150000 ) {
+            diskon10 = belanjaan * 10/100;}
+        if ( nomortf <= 50 ) {
+            diskon5 = belanjaan * 5/100;}
+        
+        jadibayar = belanjaan - (diskon10 + diskon5);
+        
+        System.out.println("========================================");
+        System.out.println("          Nota Penjualan                ");
+        System.out.println("             Toko Buku                  ");
+        System.out.println("                YOGS                    ");
+        System.out.println("========================================");
+        
+        System.out.println("Nomor Transaksi Kamu: " + nomortf);
+        System.out.println("Nama Pelanggan: " + nama);
+        System.out.println("Harga Sebelum Diskon: " + "Rp." + belanjaan + ",-");
+        System.out.println("Diskon Belanja(10%): " + "Rp." + diskon10 + ",-");
+        System.out.println("Diskon Belanja(5%): " + "Rp." + diskon5 + ",-");
+        System.out.println("Total bayar: " + "Rp." + jadibayar + ",-");
+    }
+}
